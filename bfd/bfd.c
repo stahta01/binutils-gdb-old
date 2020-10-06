@@ -338,6 +338,7 @@ CODE_FRAGMENT
 .      struct bfd_pef_data_struct *pef_data;
 .      struct bfd_pef_xlib_data_struct *pef_xlib_data;
 .      struct bfd_sym_data_struct *sym_data;
+.      struct asxxxx_data_struct *asxxxx_data;
 .      void *any;
 .    }
 .  tdata;

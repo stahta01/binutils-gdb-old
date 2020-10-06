@@ -14670,7 +14670,7 @@ OBJDUMP_DEFS="${OBJDUMP_DEFS} -DOBJDUMP_PRIVATE_VECTORS=\"${OBJDUMP_PRIVATE_VECT
 
 
 cat >>confdefs.h <<_ACEOF
-#define TARGET "${target}"
+#define TARGET "asxxxx"
 _ACEOF
 
 
@@ -14702,7 +14702,7 @@ EMULATION_VECTOR=$targ_emul_vector
 
 
 
-ac_config_files="$ac_config_files Makefile doc/Makefile po/Makefile.in:po/Make-in"
+ac_config_files="$ac_config_files Makefile"
 
 cat >confcache <<\_ACEOF
 # This file is a shell script that caches the results of configure
@@ -15690,8 +15690,6 @@ do
     "config.h") CONFIG_HEADERS="$CONFIG_HEADERS config.h:config.in" ;;
     "default-1") CONFIG_COMMANDS="$CONFIG_COMMANDS default-1" ;;
     "Makefile") CONFIG_FILES="$CONFIG_FILES Makefile" ;;
-    "doc/Makefile") CONFIG_FILES="$CONFIG_FILES doc/Makefile" ;;
-    "po/Makefile.in") CONFIG_FILES="$CONFIG_FILES po/Makefile.in:po/Make-in" ;;
 
   *) as_fn_error "invalid argument: \`$ac_config_target'" "$LINENO" 5;;
   esac

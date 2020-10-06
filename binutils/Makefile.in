@@ -71,11 +71,8 @@ POST_UNINSTALL = :
 build_triplet = @build@
 host_triplet = @host@
 target_triplet = @target@
-bin_PROGRAMS = $(am__EXEEXT_6) $(am__EXEEXT_7) $(am__EXEEXT_8) \
-	$(am__EXEEXT_9) $(am__EXEEXT_10) $(am__EXEEXT_11) \
-	@BUILD_NLMCONV@ @BUILD_SRCONV@ @BUILD_DLLTOOL@ @BUILD_WINDRES@ \
-	@BUILD_WINDMC@ $(am__EXEEXT_12) $(am__EXEEXT_13) \
-	$(am__EXEEXT_14) @BUILD_DLLWRAP@
+bin_PROGRAMS = $(am__EXEEXT_8) \
+	$(am__EXEEXT_10) $(am__EXEEXT_11) $(am__EXEEXT_15)
 noinst_PROGRAMS = $(am__EXEEXT_18) $(am__EXEEXT_21) @BUILD_MISC@
 EXTRA_PROGRAMS = $(am__EXEEXT_1) srconv$(EXEEXT) sysdump$(EXEEXT) \
 	coffdump$(EXEEXT) $(am__EXEEXT_2) $(am__EXEEXT_3) \
@@ -124,15 +121,15 @@ am__EXEEXT_4 = windmc$(EXEEXT)
 am__EXEEXT_5 = dllwrap$(EXEEXT)
 am__EXEEXT_6 = size$(EXEEXT)
 am__EXEEXT_7 = objdump$(EXEEXT)
-am__EXEEXT_8 = ar$(EXEEXT)
+am__EXEEXT_8 = sdar$(EXEEXT)
 am__EXEEXT_9 = strings$(EXEEXT)
-am__EXEEXT_10 = ranlib$(EXEEXT)
-am__EXEEXT_11 = objcopy$(EXEEXT)
+am__EXEEXT_10 = sdranlib$(EXEEXT)
+am__EXEEXT_11 = sdobjcopy$(EXEEXT)
 am__EXEEXT_12 = addr2line$(EXEEXT)
 am__EXEEXT_13 = readelf$(EXEEXT)
 am__EXEEXT_14 = elfedit$(EXEEXT)
 am__installdirs = "$(DESTDIR)$(bindir)" "$(DESTDIR)$(bindir)"
-am__EXEEXT_15 = nm-new$(EXEEXT)
+am__EXEEXT_15 = sdnm$(EXEEXT)
 am__EXEEXT_16 = strip-new$(EXEEXT)
 am__EXEEXT_17 = cxxfilt$(EXEEXT)
 am__EXEEXT_18 = $(am__EXEEXT_15) $(am__EXEEXT_16) $(am__EXEEXT_17)
@@ -465,7 +462,7 @@ zlibdir = @zlibdir@
 zlibinc = @zlibinc@
 AUTOMAKE_OPTIONS = dejagnu no-dist foreign
 ACLOCAL_AMFLAGS = -I .. -I ../config -I ../bfd
-SUBDIRS = doc po
+SUBDIRS =
 tooldir = $(exec_prefix)/$(target_alias)
 
 # Automake 1.10+ disables lex and yacc output file regeneration if
@@ -482,11 +479,11 @@ AM_CFLAGS = $(WARN_CFLAGS) $(ZLIBINC)
 AM_CFLAGS_FOR_BUILD = $(WARN_CFLAGS_FOR_BUILD) $(ZLIBINC)
 
 # these two are almost the same program
-AR_PROG = ar
-RANLIB_PROG = ranlib
+AR_PROG = sdar
+RANLIB_PROG = sdranlib
 
 # objcopy and strip should be the same program
-OBJCOPY_PROG = objcopy
+OBJCOPY_PROG = sdobjcopy
 STRIP_PROG = strip-new
 STRINGS_PROG = strings
 READELF_PROG = readelf
@@ -494,7 +491,7 @@ ELFEDIT_PROG = elfedit
 
 # These should all be the same program too.
 SIZE_PROG = size
-NM_PROG = nm-new
+NM_PROG = sdnm
 OBJDUMP_PROG = objdump
 
 # This is the demangler, as a standalone program.
@@ -512,10 +509,10 @@ EXTRA_SCRIPTS = embedspu
 BFDTEST1_PROG = bfdtest1
 BFDTEST2_PROG = bfdtest2
 TEST_PROGS = $(BFDTEST1_PROG) $(BFDTEST2_PROG)
-RENAMED_PROGS = $(NM_PROG) $(STRIP_PROG) $(DEMANGLER_PROG)
+RENAMED_PROGS = $(NM_PROG)
 
 # Stuff that goes in tooldir/ if appropriate.
-TOOL_PROGS = nm-new strip-new ar ranlib dlltool objdump objcopy readelf
+TOOL_PROGS = sdnm sdar sdranlib sdobjcopy
 BASEDIR = $(srcdir)/..
 BFDDIR = $(BASEDIR)/bfd
 INCDIR = $(BASEDIR)/include
@@ -776,7 +773,7 @@ addr2line$(EXEEXT): $(addr2line_OBJECTS) $(addr2line_DEPENDENCIES) $(EXTRA_addr2
 arparse.h: arparse.c
 	@if test ! -f $@; then rm -f arparse.c; else :; fi
 	@if test ! -f $@; then $(MAKE) $(AM_MAKEFLAGS) arparse.c; else :; fi
-ar$(EXEEXT): $(ar_OBJECTS) $(ar_DEPENDENCIES) $(EXTRA_ar_DEPENDENCIES) 
+sdar$(EXEEXT): $(ar_OBJECTS) $(ar_DEPENDENCIES) $(EXTRA_ar_DEPENDENCIES) 
 	@rm -f ar$(EXEEXT)
 	$(LINK) $(ar_OBJECTS) $(ar_LDADD) $(LIBS)
 bfdtest1$(EXEEXT): $(bfdtest1_OBJECTS) $(bfdtest1_DEPENDENCIES) $(EXTRA_bfdtest1_DEPENDENCIES) 
@@ -809,16 +806,16 @@ nlmheader.h: nlmheader.c
 nlmconv$(EXEEXT): $(nlmconv_OBJECTS) $(nlmconv_DEPENDENCIES) $(EXTRA_nlmconv_DEPENDENCIES) 
 	@rm -f nlmconv$(EXEEXT)
 	$(LINK) $(nlmconv_OBJECTS) $(nlmconv_LDADD) $(LIBS)
-nm-new$(EXEEXT): $(nm_new_OBJECTS) $(nm_new_DEPENDENCIES) $(EXTRA_nm_new_DEPENDENCIES) 
+sdnm$(EXEEXT): $(nm_new_OBJECTS) $(nm_new_DEPENDENCIES) $(EXTRA_nm_new_DEPENDENCIES) 
 	@rm -f nm-new$(EXEEXT)
 	$(LINK) $(nm_new_OBJECTS) $(nm_new_LDADD) $(LIBS)
-objcopy$(EXEEXT): $(objcopy_OBJECTS) $(objcopy_DEPENDENCIES) $(EXTRA_objcopy_DEPENDENCIES) 
+sdobjcopy$(EXEEXT): $(objcopy_OBJECTS) $(objcopy_DEPENDENCIES) $(EXTRA_objcopy_DEPENDENCIES) 
 	@rm -f objcopy$(EXEEXT)
 	$(LINK) $(objcopy_OBJECTS) $(objcopy_LDADD) $(LIBS)
 objdump$(EXEEXT): $(objdump_OBJECTS) $(objdump_DEPENDENCIES) $(EXTRA_objdump_DEPENDENCIES) 
 	@rm -f objdump$(EXEEXT)
 	$(LINK) $(objdump_OBJECTS) $(objdump_LDADD) $(LIBS)
-ranlib$(EXEEXT): $(ranlib_OBJECTS) $(ranlib_DEPENDENCIES) $(EXTRA_ranlib_DEPENDENCIES) 
+sdranlib$(EXEEXT): $(ranlib_OBJECTS) $(ranlib_DEPENDENCIES) $(EXTRA_ranlib_DEPENDENCIES) 
 	@rm -f ranlib$(EXEEXT)
 	$(LINK) $(ranlib_OBJECTS) $(ranlib_LDADD) $(LIBS)
 readelf$(EXEEXT): $(readelf_OBJECTS) $(readelf_DEPENDENCIES) $(EXTRA_readelf_DEPENDENCIES) 
@@ -1247,8 +1244,7 @@ install-dvi: install-dvi-recursive
 
 install-dvi-am:
 
-install-exec-am: install-binPROGRAMS install-binSCRIPTS \
-	install-exec-local
+install-exec-am: install-binPROGRAMS install-binSCRIPTS
 
 install-html: install-html-recursive
 

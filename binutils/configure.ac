@@ -486,7 +486,7 @@ AC_SUBST(BUILD_INSTALL_MISC)
 AC_SUBST(OBJDUMP_DEFS)
 AC_SUBST(OBJDUMP_PRIVATE_OFILES)
 
-AC_DEFINE_UNQUOTED(TARGET, "${target}", [Configured target name.])
+AC_DEFINE_UNQUOTED(TARGET, "asxxxx", [Configured target name.])
 
 targ=$target
 . $srcdir/../bfd/config.bfd
@@ -513,5 +513,5 @@ AC_SUBST(docdir)
 AC_SUBST(htmldir)
 AC_SUBST(pdfdir)
 
-AC_CONFIG_FILES(Makefile doc/Makefile po/Makefile.in:po/Make-in)
+AC_CONFIG_FILES(Makefile)
 AC_OUTPUT

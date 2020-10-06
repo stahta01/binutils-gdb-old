@@ -1465,8 +1465,8 @@ Optional Packages:
   --with-separate-debug-dir=DIR
                           Look for global separate debug info in DIR
                           [default=LIBDIR/debug]
-  --with-pkgversion=PKG   Use PKG in the version string in place of "GNU
-                          Binutils"
+  --with-pkgversion=PKG   Use PKG in the version string in place of
+                          "sdbinutils derived from GNU Binutils"
   --with-bugurl=URL       Direct users to URL to report a bug
   --with-system-zlib      use installed libz
 
@@ -12201,7 +12201,7 @@ if test "${with_pkgversion+set}" = set; then :
       *)   PKGVERSION="($withval) " ;;
      esac
 else
-  PKGVERSION="(GNU Binutils) "
+  PKGVERSION="(sdbinutils derived from GNU Binutils) "
 
 fi
 
@@ -12219,7 +12219,7 @@ if test "${with_bugurl+set}" = set; then :
 	   ;;
      esac
 else
-  BUGURL="http://www.sourceware.org/bugzilla/"
+  BUGURL="https://sourceforge.net/p/sdcc/bugs/"
 
 fi
 
@@ -12395,6 +12395,7 @@ ac_config_headers="$ac_config_headers config.h:config.in"
 
 # PR 14072
 
+target=asxxxx-unknown-unknown
 
 if test -z "$target" ; then
     as_fn_error "Unrecognized target system type; please check config.sub." "$LINENO" 5
@@ -14648,6 +14649,8 @@ do
     tekhex_vec)			 tb="$tb tekhex.lo" ;;
     core_cisco_be_vec)		 tb="$tb cisco-core.lo" ;;
     core_cisco_le_vec)		 tb="$tb cisco-core.lo" ;;
+
+    asxxxx_vec)			tb="$tb asxxxx.lo"; want64=false; host64=false; target64=false ;;
 
     "")				 ;;
     *) as_fn_error "*** unknown target vector $vec" "$LINENO" 5 ;;
