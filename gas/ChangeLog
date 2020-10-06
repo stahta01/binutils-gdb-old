@@ -1,3 +1,52 @@
+2018-01-27  Nick Clifton  <nickc@redhat.com>
+
+	This is the 2.30 release:
+
+	* configure: Regenerate.
+
+2018-01-26  Maciej W. Rozycki  <macro@mips.com>
+
+	* configure.ac: Also set `mips_default_abi' to N32_ABI for
+	`mips64*-ps2-elf*'.
+	* configure: Regenerate.
+
+2018-01-23  Nick Clifton  <nickc@redhat.com>
+
+	* configure: Regenerate.
+
+2018-01-22  Maciej W. Rozycki  <macro@mips.com>
+
+	* doc/c-mips.texi (MIPS ASE Instruction Generation Overrides):
+	Correct syntax of the `.set nomips16e2' directive description.
+
+2018-01-16  Thomas Preud'homme  <thomas.preudhomme@arm.com>
+
+	Backport from mainline
+	2018-01-15  Thomas Preud'homme  <thomas.preudhomme@arm.com>
+
+	* config/tc-arm.c (it_fsm_post_encode): Do not warn if targeting M
+	profile architecture or if in autodetection mode.  Clarify that
+	deprecation is for performance reason and concerns Armv8-A and Armv8-R.
+	* testsuite/gas/arm/armv8-ar-bad.l: Adapt to new IT deprecation warning
+	message.
+	* testsuite/gas/arm/armv8-ar-it-bad.l: Likewise.
+	* testsuite/gas/arm/sp-pc-validations-bad-t-v8a.l: Likewise.
+	* testsuite/gas/arm/udf.l: Likewise.
+	* testsuite/gas/arm/udf.d: Assemble for Armv8-A explicitely.
+
+2018-01-16  Nick Clifton  <nickc@redhat.com>
+
+	* po/fr.po: Updated French translation.
+
+2018-01-15  Nick Clifton  <nickc@redhat.com>
+
+	* po/uk.po: Updated Ukranian translation.
+
+2018-01-13  Nick Clifton  <nickc@redhat.com>
+
+	* po/gas.pot: Regenerate.
+	* configure: Regenerate.
+
 2018-01-13  Nick Clifton  <nickc@redhat.com>
 
 	2.30 branch created.

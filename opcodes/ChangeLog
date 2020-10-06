@@ -1,3 +1,28 @@
+2018-01-27  Nick Clifton  <nickc@redhat.com>
+
+	This is the 2.30 release:
+
+	* configure: Regenerate.
+	* po/opcodes.pot: Regenerate.
+
+2018-01-23  Nick Clifton  <nickc@redhat.com>
+
+	* configure: Regenerate.
+
+2018-01-16  Nick Clifton  <nickc@redhat.com>
+
+	* po/pt_BR.po: Updated Brazilian Portugese translation.
+	* po/de.po: Updated German translation.
+
+2018-01-15  Nick Clifton  <nickc@redhat.com>
+
+	* po/uk.po: Updated Ukranian translation.
+
+2018-01-13  Nick Clifton  <nickc@redhat.com>
+
+	* po/opcodes.pot: Regenerate.
+	* configure: Regenerate.
+
 2018-01-13  Nick Clifton  <nickc@redhat.com>
 
 	2.30 branch created.
